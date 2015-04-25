@@ -11,6 +11,7 @@
         return {
             register: register,
             login: login,
+            logout: logout,
             unauthenticate, unauthenticate,
             isAuthenticated: isAuthenticated,
             getAuthenticatedAccount: getAuthenticatedAccount,
@@ -48,6 +49,20 @@
 
             function loginFailure (data, status, headers, config) {
                 console.log('Epic fail!');
+            }
+        }
+
+        function logout () {
+            return $http.post('/api/v1/auth/logout/')
+                .then(logoutSuccess, logoutFailure);
+
+            function logoutSuccess (data, status, headers, config) {
+                unauthenticate();
+                $location.url('/');
+            }
+
+            function logoutFailure (data, status, headers, config) {
+                console.log('Epic failure!');
             }
         }
 

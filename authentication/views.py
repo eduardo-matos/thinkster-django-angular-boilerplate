@@ -1,5 +1,5 @@
 import json
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from rest_framework import permissions, views, viewsets, status
 from rest_framework.response import Response
 from authentication.models import Account
@@ -53,3 +53,11 @@ class LoginView(views.APIView):
                 'status': 'Unauthorized',
                 'message': 'e-mail/password not found'
             }, status=status.HTTP_401_UNAUTHORIZED)
+
+
+class LogoutView(views.APIView):
+    permission_class = permissions = (permissions.IsAuthenticated,)
+
+    def post(self, request, format=None):
+        logout(request)
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
