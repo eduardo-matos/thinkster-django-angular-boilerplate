@@ -22,7 +22,7 @@
             _snackbar('Error: ' + content, options);
         }
 
-        function show () {
+        function show (content, options) {
             _snackbar(content, options);
         }
     }

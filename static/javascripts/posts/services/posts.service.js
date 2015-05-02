@@ -24,7 +24,7 @@
         }
 
         function get (username) {
-            $http.get('/api/v1/accounts/' + username + '/posts/');
+            return $http.get('/api/v1/accounts/' + username + '/posts/');
         }
     }
 }());
