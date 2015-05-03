@@ -14,8 +14,8 @@
             update: update
         };
 
-        function destroy (profile) {
-            return $http.delete('/api/v1/accounts/' + profile.id + '/');
+        function destroy (username) {
+            return $http.delete('/api/v1/accounts/' + username + '/');
         }
 
         function get (username) {
@@ -23,7 +23,7 @@
         }
 
         function update (profile) {
-            return $http.put('/api/v1/accounts/' + profile.id + '/', profile);
+            return $http.put('/api/v1/accounts/' + profile.username + '/', profile);
         }
     }
 }());

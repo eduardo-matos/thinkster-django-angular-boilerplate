@@ -5,9 +5,9 @@
         .module('thinkster.authentication.services')
         .factory('Authentication', Authentication);
 
-    Authentication.$inject = ['$location', '$cookies', '$http'];
+    Authentication.$inject = ['$rootScope', '$location', '$cookies', '$http'];
 
-    function Authentication ($location, $cookies, $http) {
+    function Authentication ($rootScope, $location, $cookies, $http) {
         return {
             register: register,
             login: login,
@@ -44,6 +44,9 @@
 
             function loginSuccess (data, status, headers, config) {
                 setAuthenticatedAccount(data.data);
+                $rootScope.$broadcast('account.login', {
+                    username: data.data.username
+                });
                 $location.url('/');
             }
 
@@ -58,6 +61,7 @@
 
             function logoutSuccess (data, status, headers, config) {
                 unauthenticate();
+                $rootScope.$broadcast('account.logout');
                 $location.url('/');
             }
 
