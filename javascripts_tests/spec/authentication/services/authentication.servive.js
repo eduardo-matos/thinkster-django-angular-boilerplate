@@ -1,10 +1,8 @@
 describe('Authentication services', function() {
-    var $scope, $httpBackend, $cookies, Authentication, $log, $location;
+    var $httpBackend, $cookies, Authentication, $log, $location;
 
     beforeEach(module('thinkster.authentication.services'))
-    beforeEach(inject(function($rootScope, _$cookies_, _$httpBackend_, _Authentication_, _$log_, _$location_) {
-        // Create a new scope that's a child of the $rootScope
-        $scope = $rootScope.$new();
+    beforeEach(inject(function(_$cookies_, _$httpBackend_, _Authentication_, _$log_, _$location_) {
         $cookies = _$cookies_;
         $httpBackend = _$httpBackend_;
         Authentication = _Authentication_;
