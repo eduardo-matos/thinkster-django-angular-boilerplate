@@ -5,14 +5,14 @@
         .module('thinkster.authentication.services')
         .factory('Authentication', Authentication);
 
-    Authentication.$inject = ['$rootScope', '$location', '$cookies', '$http'];
+    Authentication.$inject = ['$rootScope', '$location', '$cookies', '$http', '$log'];
 
-    function Authentication ($rootScope, $location, $cookies, $http) {
+    function Authentication ($rootScope, $location, $cookies, $http, $log) {
         return {
             register: register,
             login: login,
             logout: logout,
-            unauthenticate, unauthenticate,
+            unauthenticate: unauthenticate,
             isAuthenticated: isAuthenticated,
             getAuthenticatedAccount: getAuthenticatedAccount,
             setAuthenticatedAccount: setAuthenticatedAccount
@@ -32,7 +32,7 @@
             }
 
             function registerFailure (data, status, headers, config) {
-                console.log('Epic fail!');
+                $log.info('Epic fail!');
             }
         }
 
@@ -51,7 +51,7 @@
             }
 
             function loginFailure (data, status, headers, config) {
-                console.log('Epic fail!');
+                $log.info('Epic fail!');
             }
         }
 

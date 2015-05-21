@@ -20,6 +20,7 @@ module.exports = function(config) {
       '../static/bower_components/angular/angular.js',
       '../static/bower_components/angular-cookies/angular-cookies.js',
       '../static/bower_components/angular-route/angular-route.js',
+      '../static/bower_components/angular-mocks/angular-mocks.js',
       '../static/bower_components/ngDialog/js/ngDialog.js',
       '../static/lib/snackbarjs/snackbar.min.js',
       '../static/javascripts/thinkster.js',
