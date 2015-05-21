@@ -86,8 +86,6 @@ describe('Authentication services', function() {
             expect($log.info).toHaveBeenCalledWith('Epic fail!');
         });
 
-
-
     });
 });
 
